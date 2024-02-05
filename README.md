@@ -1,14 +1,15 @@
-# Simple Round-Robin Load Balancer in Go
+# Load Balancer in Go - Least Connections
 
-This is a basic load balancer implemented in Go that distributes incoming requests to a list of servers using the round-robin algorithm.
+This is a basic load balancer implemented in Go that distributes incoming requests to a list of servers using the Least Connections algorithm.
 
 ## How It Works
 
 The load balancer listens for incoming requests and routes them to different backend servers. Here's how it functions:
 
-- Requests are distributed in a round-robin fashion, ensuring each server gets an equal share of the load.
-
-- Health checks can be implemented for each server, but in this code, all servers are considered healthy.
+1. The load balancer listens for incoming requests on a specified port.
+2. When a request is received, the load balancer selects the server with the least number of active connections and forwards the request to that server.
+3. The server processes the request and sends the response back to the load balancer.
+4. The load balancer sends the response back to the client.
 
 ## Getting Started
 
@@ -18,5 +19,6 @@ The load balancer listens for incoming requests and routes them to different bac
 
 3. Run the load balancer:
    ```bash
-   go run main.go
+   go build
+   ./load-balancer
    ```
