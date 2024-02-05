@@ -22,3 +22,5 @@ The load balancer listens for incoming requests and routes them to different bac
    go build
    ./load-balancer
    ```
+### To-Do
+- Add rate limiting on the requests
